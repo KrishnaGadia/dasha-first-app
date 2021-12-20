@@ -1,11 +1,11 @@
 # How to start the demo app
 
-This example shows how to build conversational IVR on top of Dasha. If you need any help, join us in our [Developer Community](https://community.dasha.ai).
+This example shows how to build a flight search bot on top of Dasha, Amadeus.
 
 1. Clone the repo and install the dependencies:
 
 ```sh
-git clone https://github.com/dasha-samples/dasha-first-app
+git clone https://github.com/KrishnaGadia/dasha-first-app
 cd dasha-first-app
 npm install
 ```
@@ -16,13 +16,20 @@ npm install
 npx dasha account login
 ```
 
-3. To start a text chat, run:
+3. Create a .env file, and add the following two lines for the map API
+```
+clientId=****************
+secret=**********
+```
+You will get this after registering the app on [Amadeus]https://developers.amadeus.com/get-started/get-started-with-self-service-apis-335
+
+4. To start a text chat, run:
 
 ```sh
 npm start chat
 ```
 
-4. To receive a phone call from Dasha, run:
+5. To receive a phone call from Dasha, run:
 
 ```sh
 npm start <your phone number>

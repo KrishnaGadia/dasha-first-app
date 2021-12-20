@@ -1,8 +1,13 @@
 const dasha = require("@dasha.ai/sdk");
 const fs = require("fs");
+const Amadeus = require('amadeus');
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 async function main() {
   const app = await dasha.deploy("./app");
+  
 
   app.connectionProvider = async (conv) =>
     conv.input.phone === "chat"
@@ -10,6 +15,24 @@ async function main() {
       : dasha.sip.connect(new dasha.sip.Endpoint("default"));
 
   app.ttsDispatcher = () => "dasha";
+
+  app.setExternal("getOffers",(args,conv)=>{
+    var amadeus = new Amadeus({
+      clientId: process.env.clientId,
+      clientSecret: process.env.secret
+    });
+   amadeus.shopping.flightOffersSearch.get(args).then(function(response){
+    //console.log(response.data.slice(0,2));
+    
+    offer =  response.data[0];
+    conv.total = offer.price.total;
+    conv.airline = offers.validatingAirlineCodes[0];
+    conv.offers = response.data;
+  }).catch(function(responseError){
+    console.log(responseError);
+    return "null";
+  });
+  });
 
   await app.start();
 
@@ -40,6 +63,7 @@ async function main() {
 
   await logFile.close();
 }
+
 
 main().catch((error) => {
   console.error(error);

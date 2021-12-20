@@ -1,5 +1,11 @@
 {
   "includes": {
+    "book":[
+      "book a flight",
+      "take a flight",
+      "travel",
+      "journey"
+    ],
     "track_parcel": [
       "track parcel",
       "track package",

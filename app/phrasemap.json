@@ -6,13 +6,9 @@
       "speed": 1
     },
     "phrases": {
-      "greeting": [{ "text": "Welcome to United Postal Service! How can I help you?"}],
-      "track_parcel": [{ "text": "Sorry, tracking function is not implemented yet."}],
-      "missed_delivery": [{ "text": "Sorry, rescheduling function is not implemented yet."}],
-      "where_is_point": [{ "text": "Sorry, closest location function is not implemented yet."}],
-      "return_shipment": [{ "text": "Sorry, shipment return function is not implemented yet."}],
+      "welcome":[{"text":"Pleased to meet you, "},{"id": "name", "type":"dynamic"}],
 
-
+      "offer":[{"text":"I found a "},{"id": "airline", "type":"dynamic"},{"text":" flight, for USD "},{"id": "total", "type":"dynamic"}],
       "i_will_call_back": [{ "text": "Okay, I'll call you later. Bye!" }],
       "hello": {
         "random": [
@@ -66,10 +62,6 @@
     },
     "types": {},
     "macros": {
-      "track_parcel": {},
-      "missed_delivery": {},
-      "where_is_point": {},
-      "return_shipment": {},
       "i_will_call_back": {},
       "hello": {},
       "when_callback": {},
@@ -85,7 +77,8 @@
       "is_that_all": {},
       "greeting": {},
       "will_help": {},
-      "how_much": {}
-    }
+      "how_much": {},
+      "welcome":{},
+    "offer":{}}
   }
 }

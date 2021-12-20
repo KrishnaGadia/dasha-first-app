@@ -1,0 +1,104 @@
+{
+  "version": "v2",
+  
+  "entities": {
+    
+
+    "name": {
+      "open_set": true,
+      "values": [
+        {
+          "value": "Doctor Smith",
+          "synonyms": [
+            "Doc Smith",
+            "Doctor Smith",
+            "Smith, M.D.",
+            "Smith MD"
+          ]
+        },
+        {
+          "value": "Doctor Philips",
+          "synonyms": [
+            "Doc Philips",
+            "Doctor Philips",
+            "Philips, M.D.",
+            "Philips MD"
+          ]
+        },
+        {
+          "value": "Jim Smith",
+          "synonyms": [
+            "Jim Smith"
+          ]
+        },
+        {
+          "value": "Tony Montana",
+          "synonyms": [
+            "Tony Montana"
+          ]
+        },
+        {
+          "value": "Jill Jones",
+          "synonyms": [
+            "Jill Jones"
+          ]
+        }
+      ],
+      "includes": [
+        "My name is (Doctor Smith)[name]",
+        "My name is (Tony Montana)[name]",
+        "My name is (Jill Jones)[name]",
+        "My name is (Jim Smith)[name]",
+        "This is (Doctor Philips)[name]",
+        "This is (Jill Jones)[name]",
+        "This is (Doctor Smith)[name]",
+        "This is (Jim Smith)[name]",
+        "(Doctor Jones)[name] calling",
+        "(Jim Smith)[name] calling",
+        "(Jill Jones)[name] calling",
+        "(Doctor Philips)[name] calling",
+        "I am (Micheal Philips)[name]",
+        "Hi Nadia, its (Doctor Philips)[name]"
+      ]
+    },
+    "location": {
+      "open_set": false,
+      "values": [
+        {
+          "value": "JFK",
+          "synonyms": [
+            "New York",
+            "John F Kenedy"
+          ]
+        },
+        {
+          "value": "BOS",
+          "synonyms": [
+            "Boston",
+            "Logon"
+          ]
+        },
+        {
+          "value": "LAX",
+          "synonyms": [
+            "Los Angeles",
+            "LA"
+          ]
+        },
+        {
+          "value": "ORD",
+          "synonyms": [
+            "Chicago"
+          ]
+        },
+        {
+          "value": "IAH",
+          "synonyms": [
+            "Houston",
+            "George Bush"
+          ]
+        }
+      ]
+    }
+  }
+}

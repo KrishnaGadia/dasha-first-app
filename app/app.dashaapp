@@ -1,6 +1,6 @@
 {
   "formatVersion": "2",
-  "name": "conversational-ivr-demo",
+  "name": "flight-itinary-demo",
   "dialogue": {
     "file": "main.dsl"
   },
@@ -12,7 +12,7 @@
       "common-numbers"
     ],
     "customIntents": {
-      "file": "intents.json"
+      "file": "data.json"
     }
   },
   "nlg": {

@@ -1,0 +1,114 @@
+####################################################################################################
+ai: Welcome to Fly Me. My name is Nadia. Who's calling?
+[
+  {
+    "type": "Data",
+    "skill": "25373f232099f73ba9ff9bcf59bc40f7:v2",
+    "weight": 0.99984,
+    "likelihood": 1,
+    "location": {
+      "start": 0,
+      "end": 12
+    },
+    "factType": "name",
+    "data": {
+      "value": "Raman vithal"
+    }
+  },
+  {
+    "type": "Intent",
+    "skill": "sentiment",
+    "weight": -1,
+    "likelihood": -1,
+    "location": {
+      "start": 0,
+      "end": 2
+    },
+    "intent": null,
+    "state": "neutral",
+    "sentenceType": "statement"
+  }
+]
+human: Raman vithal calling
+ai: Pleased to meet you, Raman vithal
+ai: Where are you flying from?
+[
+  {
+    "type": "Data",
+    "skill": "25373f232099f73ba9ff9bcf59bc40f7:v2",
+    "weight": 0.96931,
+    "likelihood": 1,
+    "location": {
+      "start": 0,
+      "end": 7
+    },
+    "factType": "location",
+    "data": {
+      "value": "ORD"
+    }
+  },
+  {
+    "type": "Intent",
+    "skill": "sentiment",
+    "weight": -1,
+    "likelihood": -1,
+    "location": {
+      "start": 0,
+      "end": 0
+    },
+    "intent": null,
+    "state": "neutral",
+    "sentenceType": "statement"
+  }
+]
+human: Chicago
+ai: Where are you going to?
+[
+  {
+    "type": "Data",
+    "skill": "25373f232099f73ba9ff9bcf59bc40f7:v2",
+    "weight": 0.96733,
+    "likelihood": 1,
+    "location": {
+      "start": 0,
+      "end": 6
+    },
+    "factType": "location",
+    "data": {
+      "value": "BOS"
+    }
+  },
+  {
+    "type": "Intent",
+    "skill": "sentiment",
+    "weight": -1,
+    "likelihood": -1,
+    "location": {
+      "start": 0,
+      "end": 0
+    },
+    "intent": null,
+    "state": "neutral",
+    "sentenceType": "statement"
+  }
+]
+human: Boston
+ai:  When do you want to fly out. say yyyy-MM-dd
+[
+  {
+    "type": "Intent",
+    "skill": "sentiment",
+    "weight": -1,
+    "likelihood": -1,
+    "location": {
+      "start": 0,
+      "end": 0
+    },
+    "intent": null,
+    "state": "neutral",
+    "sentenceType": "statement"
+  }
+]
+human: 2021-07-22
+ai: Here is the flight I got
+ai: I found a BA flight, for USD 326

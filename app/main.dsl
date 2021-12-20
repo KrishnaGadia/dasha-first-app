@@ -1,9 +1,36 @@
 import "commonReactions/all.dsl";
 
+type price =
+{
+    currency: string;
+    total: number;
+}
+;
+
+type offerResp =
+{
+    validatingAirlineCodes: string;
+    price: price;
+}
+;
+
 context
 {
     input phone: string;
+    //input offer: offerResp[] ;
+    name: string = "Krishna";
+    departure: string = "BOS";
+    arrival: string = "NYC";
+    date: string = "2022-08-15";
+    offers: offerResp[] = [];
+    airline: string = "BA";
+    total: number = 326;
 }
+
+external function getOffers(originLocationCode: string,
+destinationLocationCode: string,
+departureDate: string,
+adults: number=1): offerResp[];
 
 start node root
 {
@@ -11,71 +38,110 @@ start node root
     {
         #connectSafe($phone);
         #waitForSpeech(1000);
-        #sayText("Welcome to Acme Postal Service. How can I help you?");
+        #sayText("Welcome to Fly Me. My name is Nadia. Who's calling?");        
         wait *;
     }
-
+    
     transitions
     {
-        track_parcel: goto track_parcel on #messageHasIntent("track_parcel");
-        missed_delivery: goto missed_delivery on #messageHasIntent("missed_delivery");
-        where_is_point: goto where_is_point on #messageHasIntent("where_is_point");
-        return_shipment: goto return_shipment on #messageHasIntent("return_shipment");
+        provide_data: goto dept on #messageHasData("name");
     }
 }
-
-node track_parcel
+node dept
 {
     do
     {
-        #sayText("Sorry, tracking function is not implemented yet.");
-        #disconnect();
-        exit;
+        set $name = #messageGetData("name",
+        {
+            value:true
+        }
+        )[0]?.value??"";
+        #say("welcome",
+        {
+            name: $name
+        }
+        );
+        #sayText("Where are you flying from?");       
+        wait *;
     }
-
+    
     transitions
     {
+        provide_data: goto dest on #messageHasData("location",
+        {
+            value:true
+        }
+        );
     }
 }
 
-node missed_delivery
+node dest
 {
     do
     {
-        #sayText("Sorry, rescheduling function is not implemented yet.");
-        #disconnect();
-        exit;
+        set $departure = #messageGetData("location",
+        {
+            value:true
+        }
+        )[0]?.value??"";
+        #sayText("Where are you going to?");
+               
+        wait *;
     }
-
     transitions
     {
+        provide_data: goto dod on #messageHasData("location",
+        {
+            value:true
+        }
+        );
     }
 }
 
-node where_is_point
+node dod
 {
     do
     {
-        #sayText("Sorry, closest location function is not implemented yet.");
-        #disconnect();
-        exit;
+        set $arrival = #messageGetData("location",
+        {
+            value:true
+        }
+        )[0]?.value??"";
+        #sayText(" When do you want to fly out. say yyyy-MM-dd");
+        wait *;
     }
-
     transitions
     {
+        provide_data: goto res on true;
+    }
+
+}
+
+node res
+{
+    do
+    {
+        set $date = #messageGetData("date",
+            {
+                value:true
+            }
+            )[0]?.value??"2022-07-18";
+        #sayText("Here is the flight I got");
+        
+        external getOffers($departure,$arrival,$date);
+        #say("offer", {airline: $airline, total:$total});
+
+        #disconnect();
+        
     }
 }
 
-node return_shipment
+node select
 {
     do
     {
-        #sayText("Sorry, shipment return function is not implemented yet.");
+        #sayText("Hi, here is your final itinary.");
         #disconnect();
         exit;
-    }
-
-    transitions
-    {
     }
 }
