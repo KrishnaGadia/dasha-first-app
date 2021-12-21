@@ -1,3 +1,5 @@
+# Associated blog on [Medium](https://medium.com/@krishnagadia3/dasha-ai-and-their-voice-communication-platform-6f22ba56363b)
+
 # How to start the demo app
 
 This example shows how to build a flight search bot on top of Dasha, Amadeus.
